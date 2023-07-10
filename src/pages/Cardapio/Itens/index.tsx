@@ -1,7 +1,9 @@
-import cardapio from "./Itens.json";
-import Item from "./Item";
-import styles from "./Itens.module.scss";
-import { useEffect, useState } from "react";
+import cardapio from 'data/cardapio.json';
+import Item from './Item';
+import styles from './Itens.module.scss';
+import { useEffect, useState } from 'react';
+import { Cardapio } from 'types/Prato';
+import { Prato } from 'types/Prato';
 
 interface Props {
   busca: string;
@@ -14,35 +16,35 @@ export default function Itens(props: Props) {
   const { busca, filtro, ordenador } = props;
 
   // const ordenarPropriedadeCrescente = (
-  //   lista: typeof cardapio,
+  //   lista: Cardapio,
   //   propriedade: ‘size’ | ‘serving’ | ‘price’
   // ) => {
   //   return lista.sort((a, b) => (a[propriedade] > b[propriedade] ? 1 : -1));
   // };
 
   // const ordenarPropriedadeCrescente = (
-  //   lista: typeof cardapio,
-  //   propriedade: keyof Pick<typeof cardapio[0], 'size' | 'serving' | 'price'>
+  //   lista: Cardapio,
+  //   propriedade: keyof Pick<Prato, 'size' | 'serving' | 'price'>
   // ) => {
   //   return lista.sort((a, b) => (a[propriedade] > b[propriedade] ? 1 : -1));
   // };
 
   useEffect(() => {
-    function ordenar(novaLista: typeof cardapio) {
+    function ordenar(novaLista: Cardapio) {
       switch (ordenador) {
-        case "opcao":
-          return novaLista.sort((a, b) => (a.size > b.size ? 1 : -1));
-        case "qtd_pessoas":
-          return novaLista.sort((a, b) => (a.serving > b.serving ? 1 : -1));
-        case "preco":
-          return novaLista.sort((a, b) => (a.price > b.price ? 1 : -1));
-        default:
-          return novaLista;
+      case 'opcao':
+        return novaLista.sort((a, b) => (a.size > b.size ? 1 : -1));
+      case 'qtd_pessoas':
+        return novaLista.sort((a, b) => (a.serving > b.serving ? 1 : -1));
+      case 'preco':
+        return novaLista.sort((a, b) => (a.price > b.price ? 1 : -1));
+      default:
+        return novaLista;
       }
     }
 
     function testaBusca(title: string) {
-      const regex = new RegExp(busca, "i");
+      const regex = new RegExp(busca, 'i');
       return regex.test(title);
     }
 
