@@ -3,7 +3,6 @@ import Item from './Item';
 import styles from './Itens.module.scss';
 import { useEffect, useState } from 'react';
 import { Cardapio } from 'types/Prato';
-import { Prato } from 'types/Prato';
 
 interface Props {
   busca: string;
