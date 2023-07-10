@@ -18,7 +18,7 @@
     "linebreak-style": ["error", "windows"],
     "react/react-in-jsx-scope": "off",
     "indent": ["error", 2],
-    "quotes": ["error", "single"],
+    "quotes": ["error", "singles"],
     "semi": ["error", "always"]
   }
 }
